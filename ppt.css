@@ -1,0 +1,23 @@
+.ct {
+    background-color: #d4d4d4;
+    margin-top: -29px;
+    text-align: center;
+    justify-content: center;
+    font-size: large;
+    /* font-family: 'Times New Roman', Times, serif; */
+    /* font-family: 'Tangerine', serif; */
+    font-family: 'Kalam', cursive;
+    text-shadow: 4px 4px 4px #aaa;
+    
+
+}
+h3{
+    font-family: 'Kalam', cursive;
+}
+
+.-a-151 {
+    width: 100%;
+    display: none;
+    max-width: 46.875rem;
+    margin: 0.625rem 0.75rem;
+}
