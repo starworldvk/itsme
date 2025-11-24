@@ -122,3 +122,388 @@ Eng marks = int(input('Enter English marks: '))
 Percentage =
 
 (Math_marks+Phy_marks+Computer_marks+Chem_marks+Eng_marks)//5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("Percentage of ",name,' is ',Percentage)
+
+Remarks = input("Enter remarks: ")
+
+try:
+
+query = "INSERT INTO CLASS12 (name, Math_marks, Phy_marks, Computer_marks, Chem_marks, Eng_marks, Percentage, Teacher_Remarks)
+
+data = (name, Math_marks, Phy_marks, Computer_marks, Chem_marks, Eng_marks, Percentage, Remarks)
+
+cursor.execute(query, data)
+
+connection.commit()
+
+print("The report has been added to the list!")
+
+except Exception as e:
+
+print("Error occurred:", e)
+
+time.sleep(1)
+
+teacher_login(connection, cursor)
+
+elif choice 2:
+
+display_items(cursor)
+
+print("Which report would you like to remove?")
+
+id = int(input("Enter admission id:"))
+
+try:
+
+query = f"DELETE FROM CLASS12 WHERE Admn_no={id}""
+
+cursor execute(query)
+
+connection.commit)
+
+print("The report has been removed
+
+
+
+
+
+
+
+
+
+
+
+print("Invalid item!", e)
+
+time.sleep(1)
+
+teacher_login(connection, cursor)
+
+elif choice 3:
+
+display_items(cursor)
+
+print("Which student's marks would you like to update?") id = int(input("Enter admission ID:"))
+
+print("Which category would you like to update?")
+
+print("1. Maths")
+
+print("2. Physics")
+
+print("3. Computer")
+
+print("4. Chemistry")
+
+print("5. English")
+
+print("6. Percentage")
+
+print("7. Remarks")
+
+subject_choice = int(input("Enter the category number (1-7):"))
+
+subject = ""
+
+if subject_choice == 1:
+
+subject = "Math_marks"
+
+elif subject_choice == 2:
+
+subject = "Phy_marks"
+
+elif subject_choice == 3:
+
+subject = "Computer_marks"
+
+elif subject_choice == 4:
+
+subject = "Chem_marks"
+
+
+
+
+
+elif subject_choice == 5:
+
+subject = "Eng_marks"
+
+elif subject_choice== 6:
+
+subject = "Percentage"
+
+elif subject_choice== 7:
+
+subject = "Teacher_Remarks"
+
+else:
+
+print("Invalid choice!")
+
+time.sleep(1)
+
+teacher_login(connection, cursor)
+
+return
+
+if subject choice == 7:
+
+record = input("Enter the updated record:")
+
+query = f"UPDATE CLASS12 SET {subject} = %s WHERE Admn_no = {id}" data = (record,)
+
+else:
+
+record = int(input("Enter the updated record:"))
+
+query = f"UPDATE CLASS12 SET {subject} = {record} WHERE Admn_no =
+
+try:
+
+cursor.execute(query, data)
+
+connection.commit()
+
+print("The record has been updated!")
+
+except Exception as e:
+
+print("Invalid Admission ID or error updating record!", e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+time.sleep(1)
+
+teacher_login(connection, cursor)
+
+elif choice= 4:
+
+display_items(cursor)
+
+time.sleep(1.5)
+
+teacher_login(connection, cursor)
+
+elif choice = 5:
+
+main()
+
+else:
+
+print("Invalid Choice!")
+
+time.sleep(1)
+
+teacher_login(connection, cursor)
+
+#parent login function
+
+--")
+
+def parent_login(connection, cursor):
+
+print("-----------Welcome, You are logged in as a Parent!-
+
+print("Here is the list of choices:")
+
+print("Choice 1: Check Your child's report", "Choice 2: Exit", sep="\n")
+
+choice = int(input("Enter your choice:"))
+
+if choice 1:
+
+name = input("Enter your name:")
+
+print(f"Greetings From Green Fields School, {name}")
+
+time.sleep(0.5)
+
+display_name(cursor)
+
+
+
+
+
+
+
+
+
+
+
+
+print(
+
+while True:
+
+id = int(input("Enter your child's ID NO:"))
+
+try:
+
+query = f""SELECT * FROM CLASS12 WHERE Admn_no={id}"
+
+cursor.execute(query)
+
+result = cursor.fetchone()
+
+if result:
+
+print("ID:", result[0])
+
+print("Name:", result[1])
+
+print("Math:", result[2])
+
+print("Physics:", result[3])
+
+print("Computer:", result[4])
+
+print("Chemistry:", result[5])
+
+print("English:", result[6])
+
+print("Percentage:", result[7])
+
+print("Remarks:", result[8])
+
+if result[7]>=33:
+
+print("Congratulations! Your child has passed this academic year!")
+
+else:
+
+else:
+
+print("Sorry! Your child has failed this academic year")
+
+print("No record found for this ID.")
+
+i = input("Want to check another result? Answer Y for Yes and N for No: ")
+
+if i.upper() = 'N':
+
+break
+
+except Exception as e:
+
+
+
+
+
+
+
+
+
+print("Invalid Entry!")
+
+print(e)
+
+break
+
+print("Thank you! Have a sweet day!")
+
+time.sleep(1)
+
+parent_login(connection, cursor)
+
+elif choice = 2:
+
+main()
+
+else:
+
+print("Invalid Choice!")
+
+time.sleep(1)
+
+parent_login(connection, cursor)
+
+#user interface
+
+def main():
+
+inloop = 1
+
+while inloop:
+
+printo
+
+print("
+
+--")
+
+-")
+
+print("--------------------Welcome to GREEN FIELDS SCHOOL-
+
+print("-
+
+print("How do you want to Enter?")
+
+print("Choice 1: Teacher Login", "Choice 2: Parent Login", "Choice 3: Exit",
+
+sep="\n")
+
+choice = input("Enter your choice:")
+
+if choice == '1
+
+
+
+password = input("Enter the password: ")
+
+if password == "gfs123":
+
+teacher_login(connection, cursor)
+
+else:
+
+print("Incorrect Password!")
+
+time.sleep(1)
+
+elif choice == '2':
+
+parent_login(connection, cursor)
+
+elif choice == '3':
+
+exit(
+
+else:
+
+print("Invalid Choice!")
+
+main(
+
+
+
+
+
+
